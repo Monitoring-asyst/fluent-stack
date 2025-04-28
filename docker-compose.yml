@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  fluentbit:
+    image: fluent/fluent-bit:2.1
+    volumes:
+      - ./fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf:ro
+      - ./parsers.conf:/fluent-bit/etc/parsers.conf:ro
+      - ./logs/flight-all5.log:/fluentbit/flight-all5.log:ro
+    ports:
+      - "2020:2020"
